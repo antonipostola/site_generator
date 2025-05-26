@@ -322,28 +322,11 @@ def generate_html(raw_html_location: str):
 
 
 
-    # replaces leading spaces to tabs for better formatting
-
-    def spaces_to_tabs(pretty_str: str) -> str:
-        result: list[str] = []
-        for line in pretty_str.splitlines():
-            leading_spaces = len(line) - len(line.lstrip(' '))
-            result.append("\t" * leading_spaces + line.lstrip())
-        return '\n'.join(result)
-
-
-    # create and format the html string
+    # create the html strings
 
     result: dict[str, str] = {}
     for lang in LANGUAGES:
-
-        formatted = generated_html[lang].prettify()
-        assert type(formatted ) == str
-
-        formatted = spaces_to_tabs(formatted)
-        
-        result[lang] = formatted
-
+        result[lang] = str(generated_html[lang])
 
 
     # useful path variables
