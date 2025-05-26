@@ -31,11 +31,11 @@ Here, the \<div\> tag will be added to both the English and French sites, while 
 
 ### Path variables
 There are path variables you can use to decrease the need for manually entering cross-language URLs and similar. Any occurence of them will be replaced with their value. They are listed below:
-- $LANG$ -> Replaced with the language identifier of the generated site.
-- $PATH$ -> Replaced with the full (website-local) path of the generated site.
-- $PATH[<language identifier>]$** -> Replaced with the full (website-local) path of the generated site for the specified language.
-- $PARENTPATH$ -> Replaced with the full (website-local) path of the parent site.
-- $PATHEND$ -> Replaced with the end of the site path - if the site was at foo/bar/foobar, foobar would be returned.
+- \$LANG\$ -> Replaced with the language identifier of the generated site.
+- \$PATH\$ -> Replaced with the full (website-local) path of the generated site.
+- \$PATH[<language identifier>]\$** -> Replaced with the full (website-local) path of the generated site for the specified language.
+- \$PARENTPATH\$ -> Replaced with the full (website-local) path of the parent site.
+- \$PATHEND\$ -> Replaced with the end of the site path - if the site was at foo/bar/foobar, foobar would be returned.
 
 ### Templates
 Templates are defined by html files in the TEMPLATE\_LOCATION folder. They reduce the need for retyping similar information.
