@@ -5,13 +5,13 @@ It provides template and language seperation features that extend basic html.
 
 ## Usage
 
-The website should be written within the **PREPROCESSED_SITE_LOCATION**, which defaults to './site/', where you can use the features of the generator.
+The website should be written within the PREPROCESSED\_SITE\_LOCATION, which defaults to './site/', where you can use the features of the generator.
 
-Any templates you may wish to use should be in the **TEMPLATE_LOCATION** which default to './templates'.
+Any templates you may wish to use should be in the TEMPLATE\_LOCATION which default to './templates'.
 
-For global resources you should you the **RESOURCE_LOCATION** which defaults to './resource' as it is copied over to the generated site.
+For global resources you should you the RESOURCE\_LOCATION which defaults to './resource' as it is copied over to the generated site.
 
-To generate the site, you run the **generate.py** file. This will generate the new site to the **GENERATION_LOCATION**, which is './generated\_site' by default.
+To generate the site, you run the **generate.py** file. This will generate the new site to the GENERATION\_LOCATION, which is './generated\_site' by default.
 
 ## Features
 
@@ -31,20 +31,20 @@ Here, the \<div\> tag will be added to both the English and French sites, while 
 
 ### Path variables
 There are path variables you can use to decrease the need for manually entering cross-language URLs and similar. Any occurence of them will be replaced with their value. They are listed below:
-- **$LANG$** -> Replaced with the language identifier of the generated site.
-- **$PATH$** -> Replaced with the full (website-local) path of the generated site.
-- **$PATH[<language identifier>]$** -> Replaced with the full (website-local) path of the generated site for the specified language.
-- **$PARENTPATH$** -> Replaced with the full (website-local) path of the parent site.
-- **$PATHEND$** -> Replaced with the end of the site path - if the site was at foo/bar/foobar, foobar would be returned.
+- $LANG$ -> Replaced with the language identifier of the generated site.
+- $PATH$ -> Replaced with the full (website-local) path of the generated site.
+- $PATH[<language identifier>]$** -> Replaced with the full (website-local) path of the generated site for the specified language.
+- $PARENTPATH$ -> Replaced with the full (website-local) path of the parent site.
+- $PATHEND$ -> Replaced with the end of the site path - if the site was at foo/bar/foobar, foobar would be returned.
 
 ### Templates
-Templates are defined by html files in the **TEMPLATE_LOCATION** folder. They reduce the need for retyping similar information.
+Templates are defined by html files in the TEMPLATE\_LOCATION folder. They reduce the need for retyping similar information.
 #### Definition
 Templates are mostly just html that will be copied in when the template tag is used. However, when defining the template there are 2 special tags that can be used:
 - The **\<CustomTemplateBody/\>** is used to specify where in the template the tag's contents should be put.
 - The **\<CustomTemplateVar/\>** is used to put the string value of an attribute somewhere within the template. It is required that a 'name' attribute is also given so that we know which passed attribute to use.
 #### Usage
-To use a template, you use the **\<CustomTemplate\>** tag. You have to specify which template from the **TEMPLATE_LOCATION** to use with the **location** attribute. Any other attributes passed can be used as a **\<CustomTemplateVar/\>** within the template.
+To use a template, you use the **\<CustomTemplate\>** tag. You have to specify which template from the TEMPLATE\_LOCATION to use with the **location** attribute. Any other attributes passed can be used as a **\<CustomTemplateVar/\>** within the template.
 #### Example
 If we had a template 'foo.html' like this:
 ```
@@ -68,16 +68,16 @@ The result would be:
 ## Configuration
 
 You can edit the target directories near the top of the python script. The variables that change them are: 
-- **PREPROCESSED_SITE_LOCATION** -> This is the location of the site you want to run the script on to generate the site.
-- **TEMPLATE_LOCATION** -> This is where all the templates are stored.
+- **PREPROCESSED_SITE\_LOCATION** -> This is the location of the site you want to run the script on to generate the site.
+- **TEMPLATE\_LOCATION** -> This is where all the templates are stored.
 - **GENERATION_LOCATION** -> This is where the site will generate to.
 
 To change the language sites that are generated, edit the **LANGUAGES** list.
 
-The site generator is made with the idea that one html file is responsible for all the languages of the page, so there is also a dictionary called **LANGUAGE_SITE_NAMES**. The dictionary is there to allow the same structure for the different languages, while still keeping native words in the url. The formatting goes as so:
+The site generator is made with the idea that one html file is responsible for all the languages of the page, so there is also a dictionary called **LANGUAGE\_SITE\_NAMES**. The dictionary is there to allow the same structure for the different languages, while still keeping native words in the url. The formatting goes as so:
 ```
-LANGUAGE_SITE_NAMES {
-    "<The base site name, (what it is called in the PREPROCESSED_SITE_LOCATION)>": {
+LANGUAGE\_SITE\_NAMES {
+    "<The base site name, (what it is called in the PREPROCESSED_SITE\_LOCATION)>": {
         "<lang>": "<name for that language>",
     },
 }
