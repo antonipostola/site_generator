@@ -77,7 +77,7 @@ To change the language sites that are generated, edit the `LANGUAGES` list.
 
 The site generator is made with the idea that one html file is responsible for all the languages of the page, so there is also a dictionary called `LANGUAGE_SITE_NAMES`. The dictionary is there to allow the same structure for the different languages, while still keeping native words in the url. The formatting goes as so:
 ```
-LANGUAGE\_SITE\_NAMES {
+LANGUAGE_SITE_NAMES {
     "<The base site name, (what it is called in the PREPROCESSED_LOCATION)>": {
         "<lang>": "<name for that language>",
     },
