@@ -7,9 +7,9 @@ It provides template and language seperation features that extend basic html.
 
 The website should be written within the `PREPROCESSED_LOCATION`, which defaults to `./site/`, where you can use the features of the generator.
 
-Any templates you may wish to use should be in the `TEMPLATE_LOCATION` which default to `./templates`.
+Any templates you may wish to use should be in the `TEMPLATE_LOCATION` which defaults to `./templates`.
 
-For global resources you should you the `RESOURCE_LOCATION` which defaults to `./resource` as it is copied over to the generated site.
+For global resources you should use the `RESOURCE_LOCATION` which defaults to `./resource` as it is copied over to the generated site.
 
 To generate the site, you run the **`generate.py`** file. This will generate the new site to the `GENERATION_LOCATION`, which is `./generated_site` by default.
 
