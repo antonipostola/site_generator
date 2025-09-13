@@ -181,7 +181,9 @@ def expand_template( template_html_location: str, template_body: list[PageElemen
 
     # expand other templates if present in this one
 
-    for template_tag in soup.find_all("customtemplate"):
+    nested_templates = sorted(soup.find_all("customtemplate"), key=lambda tag: len(list(tag.parents)), reverse=True)
+
+    for template_tag in nested_templates:
         assert isinstance(template_tag, Tag)
 
         other_template_loc = str(template_tag.get("location"))
@@ -326,7 +328,9 @@ def generate_html(raw_html_location: str):
 
     # expand the templates present
 
-    for template_tag in soup.find_all("customtemplate"):
+    templates = sorted(soup.find_all("customtemplate"), key=lambda tag: len(list(tag.parents)), reverse=True)
+
+    for template_tag in templates:
         assert isinstance(template_tag, Tag)
 
         template_loc = str(template_tag.get("location"))
