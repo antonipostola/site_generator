@@ -40,9 +40,10 @@ There are path variables you can use to decrease the need for manually entering 
 ### Templates
 Templates are defined by html files in the `TEMPLATE_LOCATION` folder. They reduce the need for retyping similar information.
 #### Definition
-Templates are mostly just html that will be copied in when the template tag is used. However, when defining the template there are 2 special tags that can be used:
+Templates are mostly just html that will be copied in when the template tag is used. However, when defining the template there are 3 special tags that can be used:
 - The `<CustomTemplateBody/>` is used to specify where in the template the tag's contents should be put.
 - The `<CustomTemplateVar/>` is used to put the string value of an attribute somewhere within the template. It is required that a 'name' attribute is also given so that we know which passed attribute to use.
+- The `<VarTitle/>` is used to put the contents of a template variable inside a title. This is needed because title tags interpret strings. You use the 'name' attribute to select the variable.
 #### Usage
 To use a template, you use the `<CustomTemplate>` tag. You have to specify which template from the `TEMPLATE_LOCATION` to use with the `location` attribute. Any other attributes passed can be used as a `<CustomTemplateVar/>` within the template.
 #### Example

@@ -132,7 +132,7 @@ def expand_template( template_html_location: str, template_body: list[PageElemen
 
 
 
-    # subsitute the template variables
+    # substitute the template variables
 
     for template_var_tag in soup.find_all("customtemplatevar"):
         assert isinstance(template_var_tag, Tag)
@@ -150,6 +150,32 @@ def expand_template( template_html_location: str, template_body: list[PageElemen
                 _ = template_var_tag.insert_before(template_vars[var_name])
 
             template_var_tag.decompose()
+
+
+
+    # substitute the variable titles
+
+    for var_title_tag in soup.find_all("vartitle"):
+        assert isinstance(var_title_tag, Tag)
+
+        if template_body != None:
+
+            var_name = str(var_title_tag.get("name"))
+
+            if var_name == "None":
+                fail(f"({template_html_location}): 'VarTitle' tags must have a 'name' attribute.")
+
+            elif var_name not in template_vars:
+                fail(f"({template_html_location}): VarTitle's variable: '{var_name}' was not set.")
+            else:
+                title_tag = soup.new_tag("title")
+                title_tag.attrs = var_title_tag.attrs.copy()
+                del title_tag["name"]
+                title_tag.string = template_vars[var_name]
+
+                _ = var_title_tag.insert_before(title_tag)
+
+            var_title_tag.decompose()
 
 
 
